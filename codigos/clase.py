@@ -45,19 +45,20 @@ class Excel:
     
 
     def read_wb(self, word):
-        """ Éste método lee la información del archivo creado o
-            cargado con el constructor y agrega todos los datos a una lista
+        """ Éste método lee el archivo y si la palabra dada se encuentra en él,
+            entonces se crea una lista con los contenidos de la fila en la cual
+            se encuentra esa palabra
         """
-        dic={}
-        keys=[]
-        values=[]
+        
+        info=[]
+        
         for i in range(1, self.rws+1):
             for j in range(1, self.clmns+1):
                 if self.sh.cell(i, j).value == word:
                     for k in range(1, 20):
-                        keys.append((self.sh.cell(1, k).value + ":"
+                        info.append((self.sh.cell(1, k).value + ":"
                                      + str(self.sh.cell(i, k).value)+ "\n"))
-        return keys
+        return info
                         
                     
                 
