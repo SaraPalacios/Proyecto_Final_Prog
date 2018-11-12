@@ -44,15 +44,24 @@ class Excel:
         return "Usted está trabajando en el archivo: " + self.filename
     
 
-    def read_wb(self):
+    def read_wb(self, word):
         """ Éste método lee la información del archivo creado o
             cargado con el constructor y agrega todos los datos a una lista
         """
-        content = []
-        for row in self.sh.rows:
-            for cell in row:
-                content.append(cell.value)
-        return content
+        dic={}
+        keys=[]
+        values=[]
+        for i in range(1, self.rws+1):
+            for j in range(1, self.clmns+1):
+                if self.sh.cell(i, j).value == word:
+                    for k in range(1, 20):
+                        keys.append((self.sh.cell(1, k).value + ":"
+                                     + str(self.sh.cell(i, k).value)+ "\n"))
+        return keys
+                        
+                    
+                
+        
     
 
     def write_wb(self):
@@ -72,16 +81,8 @@ class Excel:
                 self.sh.cell(j, k).value = información[k-1]                
         self.wb.save(self.filename)#se guarda el archivo con la nueva información
         
-        
+      
 
-
-
-book = Excel("wb7.xlsx", "Hoja1")
-
-
-book.write_wb()
-text = book.read_wb()
-print(text)
 
 
 
