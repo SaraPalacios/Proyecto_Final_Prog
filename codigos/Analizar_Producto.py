@@ -7,7 +7,8 @@ Created on SAT Nov 11 2018
 """
 import tkinter as tk
 from clase import *
-from prueba import *
+import random
+#from prueba import *
 
 
 
@@ -27,15 +28,19 @@ def Analizar_wn():
                    font=("Malgun Gothic Semilight", 10))
     lb2.grid(column=0, row=1, pady=10)
 
+    
     #---Entrada de texto---
     entry1 = tk.Entry(master=newwn)
     entry1.grid(column=0, row=3, pady=10)
     palabra = entry1.get()
 
+ 
     #--Botón para buscar--
     but1=tk.Button(master=newwn, text="Buscar",
-                   command=mostrar_información(newwn, palabra))
+                   command= lambda: mostrar_información(newwn, entry1.get()))
     but1.grid(column=0, row=4, pady=10)
+
+    
 
     
     
@@ -44,17 +49,30 @@ def Analizar_wn():
     return newwn
 
 
+def phrase_generator(wn, entry):
+    phrases = ["Hello", "what's up", "aloha", "Hafa Adai"]
+    
+    
+    return phrases[random.randrange(0,3)] + entry
+
 
 def mostrar_información(wn, word):
-    #no funciona aún
+    
     """Función que muestra en un texto las características del producto
         ingresado"""
-    datos = tk.Text(master=wn, height=10, width=30)
-    datos.grid(column=0, row=5)
+    
+    window = tk.Tk()
+    window.title("Información de producto")
+    texto = tk.Text(master=window, height=10, width=70)
+    texto.grid(column=0, row=1)
     libro = Excel("wb7.xlsx", "Hoja1")
     información = libro.read_wb(word)
-    datos.insert(tk.END, información)
+    texto.insert(tk.END, información)
     
+   
+
+
+
 
     
 

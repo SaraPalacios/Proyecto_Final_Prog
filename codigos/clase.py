@@ -51,14 +51,17 @@ class Excel:
         """
         
         info=[]
+        final=[]
         
         for i in range(1, self.rws+1):
             for j in range(1, self.clmns+1):
                 if self.sh.cell(i, j).value == word:
                     for k in range(1, 20):
-                        info.append((self.sh.cell(1, k).value + ":"
-                                     + str(self.sh.cell(i, k).value)+ "\n"))
+                        info.append((self.sh.cell(1, k).value + ": "
+                                     + str(self.sh.cell(i, k).value)))
         return info
+
+             
                         
                     
                 
@@ -82,7 +85,6 @@ class Excel:
                 self.sh.cell(j, k).value = información[k-1]                
         self.wb.save(self.filename)#se guarda el archivo con la nueva información
         
-      
 
 
 
