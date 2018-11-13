@@ -7,7 +7,7 @@ Created on SAT Nov 11 2018
 """
 import tkinter as tk
 from clase import *
-import random
+
 #from prueba import *
 
 
@@ -49,11 +49,6 @@ def Analizar_wn():
     return newwn
 
 
-def phrase_generator(wn, entry):
-    phrases = ["Hello", "what's up", "aloha", "Hafa Adai"]
-    
-    
-    return phrases[random.randrange(0,3)] + entry
 
 
 def mostrar_información(wn, word):
