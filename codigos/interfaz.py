@@ -7,6 +7,8 @@ Created on SAT Nov 11 2018
 """
 import tkinter as tk
 from Analizar_Producto import Analizar_wn
+from Agregar_Producto import Agregar_wn
+
 
 
 
@@ -27,14 +29,7 @@ def Comparar_productos():
     
     return otherwn
 
-def Agregar_productos():
-    """Esta función crea la ventana que permite agregar un nuevo producto,
-        se activa al dar cick en: 'Agregar Producto' """
-    oother = tk.Tk()
-    oother.title("Agregar Producto")
-    oother.geometry("500x200")
-    
-    return oother
+
 
 
 #---Etiquetas---
@@ -54,7 +49,7 @@ bot2 = tk.Button(text="Comparar Productos", command=Comparar_productos)
 bot2.grid(column=1, row=5, padx=40, pady=20)
 
 
-bot3 = tk.Button(text="Agregar Producto", command=Agregar_productos)
+bot3 = tk.Button(text="Agregar Producto", command=Agregar_wn)
 bot3.grid(column=4, row=5, padx=40, pady=10)
 
 

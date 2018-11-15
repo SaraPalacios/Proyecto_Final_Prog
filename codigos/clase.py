@@ -51,8 +51,7 @@ class Excel:
         """
         
         info=[]
-        final=[]
-        
+                
         for i in range(1, self.rws+1):
             for j in range(1, self.clmns+1):
                 if self.sh.cell(i, j).value == word:

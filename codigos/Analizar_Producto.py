@@ -8,7 +8,7 @@ Created on SAT Nov 11 2018
 import tkinter as tk
 from clase import *
 
-#from prueba import *
+
 
 
 
@@ -63,6 +63,8 @@ def mostrar_información(wn, word):
     libro = Excel("wb7.xlsx", "Hoja1")
     información = libro.read_wb(word)
     texto.insert(tk.END, información)
+
+
     
    
 
