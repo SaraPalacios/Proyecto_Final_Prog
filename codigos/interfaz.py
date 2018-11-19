@@ -7,7 +7,7 @@ Created on SAT Nov 11 2018
 """
 import tkinter as tk
 from Analizar_Producto import Analizar_wn
-from Agregar_Producto import Agregar_wn
+from Agregar_Nuevo_p import Agregar_wn
 
 
 

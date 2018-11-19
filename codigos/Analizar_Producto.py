@@ -37,7 +37,7 @@ def Analizar_wn():
  
     #--Botón para buscar--
     but1=tk.Button(master=newwn, text="Buscar",
-                   command= lambda: mostrar_información(newwn, entry1.get()))
+                   command= lambda: mostrar_información(entry1.get()))
     but1.grid(column=0, row=4, pady=10)
 
     
@@ -51,18 +51,30 @@ def Analizar_wn():
 
 
 
-def mostrar_información(wn, word):
+def mostrar_información(word):
     
     """Función que muestra en un texto las características del producto
         ingresado"""
     
+    libro = Excel("wb8.xlsx", "Hoja1")
+    información = libro.read_wb(word)
     window = tk.Tk()
     window.title("Información de producto")
     texto = tk.Text(master=window, height=10, width=70)
     texto.grid(column=0, row=1)
-    libro = Excel("wb7.xlsx", "Hoja1")
-    información = libro.read_wb(word)
-    texto.insert(tk.END, información)
+    for i in range(0, len(información)):
+        texto.insert(tk.END, ("{0} {1}".format(información[i], "\n")))
+    
+    
+        
+        
+    
+    
+    
+
+
+   
+        
 
 
     
