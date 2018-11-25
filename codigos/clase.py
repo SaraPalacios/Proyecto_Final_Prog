@@ -46,8 +46,8 @@ class Excel:
 
     def read_wb(self, words1):
         """ Éste método lee el archivo y si la palabra dada se encuentra en él,
-            entonces se crea una lista con los contenidos de la fila en la cual
-            se encuentra esa palabra
+            entonces se crea una lista con el titulo del encabezado y
+            su valor en la fila correspondiente.
         """
         
         info1=[]
@@ -59,11 +59,28 @@ class Excel:
                 
                 if a == words1:
                     for k in range(1, 20):
-                        info1.append((self.sh.cell(1, k).value + ": "
+                        info1.append((self.sh.cell(1, k).value + "= "
                                      + str(self.sh.cell(i, k).value)))
         return info1
                 
+    def read_numbs(self, words1):
+        """ Éste método lee el archivo y si la palabra dada se encuentra en él,
+            entonces se crea una lista con los contenidos de la fila en la cual
+            se encuentra esa palabra
+        """
+        
+        info2=[]
+               
                 
+        for i in range(1, self.rws+1):
+            for j in range(1, self.clmns+1):
+                a = self.sh.cell(i, j).value
+                
+                if a == words1:
+                    for k in range(1, 20):
+                        info2.append(self.sh.cell(i, k).value)
+        return info2
+        
         
                
                     
