@@ -10,7 +10,12 @@ from clase import *
 from Agregar_Nuevo_p import entradas
 
 
-def texto():
+def compare():
+    """Esta función toma el texto escrito en las dos entradas de la interfaz
+    y el elemento seleccionado del OptionMenu, con esta información lee en
+    archivo de Exccel las palabras y muestra en un espacio de tecto la información
+    para comparar.
+    """
     a = selección.get()
     b = entry1.get()
     c = entry2.get()
@@ -99,7 +104,7 @@ om = tk.OptionMenu(otherwn, selección,  *variables)
 om.grid(column=0, row=7, padx=150, sticky="W")
 
 #---Boton---
-but1=tk.Button(master=otherwn, text="Buscar información", command=texto)
+but1=tk.Button(master=otherwn, text="Buscar información", command=compare)
 but1.grid(column=0, row=18, pady= 20,sticky="W")
 
 
