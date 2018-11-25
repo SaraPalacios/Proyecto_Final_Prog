@@ -8,6 +8,7 @@ Created on SAT Nov 11 2018
 import tkinter as tk
 from Analizar_Producto import Analizar_wn
 from Agregar_Nuevo_p import Agregar_wn
+from Comparar_Producto import Comparar_wn
 
 
 
@@ -19,15 +20,7 @@ main.geometry("510x200")
 
 
 
-    
-def Comparar_productos():
-    """Esta función crea la ventana que permite comparar productos,
-        se activa al dar cick en: 'Comparar productos' """
-    otherwn = tk.Tk()
-    otherwn.title("Comparar Productos")
-    otherwn.geometry("500x200")
-    
-    return otherwn
+
 
 
 
@@ -45,7 +38,7 @@ bot1 = tk.Button(text="Analizar Producto", command=Analizar_wn)
 bot1.grid(column=0, row=5, padx=20, pady=20)
 
 
-bot2 = tk.Button(text="Comparar Productos", command=Comparar_productos)
+bot2 = tk.Button(text="Comparar Productos", command=Comparar_wn)
 bot2.grid(column=1, row=5, padx=40, pady=20)
 
 
