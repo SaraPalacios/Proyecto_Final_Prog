@@ -82,11 +82,34 @@ class Excel:
         return info2
         
         
-               
-                    
+    def read2wrds_wb(self, words1, words2):
+        """ Éste método lee el archivo y si la palabras dadas se encuentran en
+            una misma linea del documento entonces se crea una lista con el
+            titulo del encabezado y su valor en la fila correspondiente.
+        """
         
+        info3=[]
+                     
                 
-
+        for i in range(1, self.rws+1):
+            for j in range(1, self.clmns+1):
+                a = self.sh.cell(i, j).value
+                
+                if a == words1:
+                    for k in range(1, 20):
+                        info3.append((self.sh.cell(1, k).value + "= "
+                                     + str(self.sh.cell(i, k).value)))
+                        
+                        
+        if len(info3) > 19:
+            info4 = info3[0:19]
+            prov = info3[19:38]
+            if words2 in info4[1]:
+                return info4
+            elif words2 in prov[1]:
+                return prov
+                            
+           
     def write_wb(self, lista):
         """ En éste método el usuario ingresa la información que desea insertar en
             en una fila del documento; ésta información es guardada en una lista y
@@ -99,7 +122,6 @@ class Excel:
             for k in range(1, len(lista)+1):
                 self.sh.cell(j, k).value = lista[k-1]                
         self.wb.save(self.filename)#se guarda el archivo con la nueva información
-
 
 
 

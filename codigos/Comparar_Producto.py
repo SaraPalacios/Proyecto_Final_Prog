@@ -49,9 +49,9 @@ def compare(selection, ent1, ent2, ent3, ent4, lista):
     elif b==c:
         d=ent3.get()
         e=ent4.get()
-        txtd= book.read2wrds_wb(a, d)
+        txtd= book.read2wrds_wb(b, d)
         print(txtd)
-        txte= book.read2wrds_wb(a, e)
+        txte= book.read2wrds_wb(b, e)
         print(txte)
         for i in range(len(lista)):
             if a == lista[i]:
@@ -62,14 +62,21 @@ def compare(selection, ent1, ent2, ent3, ent4, lista):
                 numse=re.sub("\D", "", indiceexcele)
                 comparación = min(numsd, numse)
                 if comparación == numsd:
-                    
-                    msg="El producto {0} de la marca {1} es más salubable con respecto a {2}".format(c,d, a) + "\n" + "Con: {3}".format(indiceexceld)
-                    msg1="El producto {0} de la marca {1} es menos salubable con respecto a {2}".format(c,e, a) + "\n" + "Con: {3}".format(indiceexcele)
-                    texto.insert(tk.END, ("\n" + msg + "\n" + msg1))
+                    msg="El producto {0} de la marca {1}".format(c,d)
+                    comp = "es más salubable con respecto a {0}".format(a)
+                    comp2= "\n" + "Con: {0}".format(indiceexceld)
+                    msg1="El producto {0} de la marca {1}".format(c, e)
+                    comp3=" es menos salubable con respecto a {0}".format(a) 
+                    comp4="\n" + "Con: {0}".format(indiceexcele)
+                    texto.insert(tk.END, ( msg + comp + comp2+"\n" + msg1 + comp3 + comp4))
                 elif comparación == numse:
-                    msg2="El producto {0} de la marca {1} es más salubable con respecto a {2}".format(c,e, a) + "\n" + "Con: {3}".format(indiceexcele)
-                    msg3="El producto {0} de la marca {1} es menos salubable con respecto a {2}".format(c,d, a) + "\n" + "Con: {3}".format(indiceexceld)
-                    texto.insert(tk.END, ("\n" + msg2 + "\n" + msg3))
+                    msg2="El producto {0} de la marca {1}".format(c, e)
+                    comp5= " es más salubable con respecto a {0}".format(a)
+                    comp6= "\n" + "Con: {0}".format(indiceexcele)
+                    msg3="El producto {0} de la marca {1}".format(c, d)
+                    comp7=" es menos salubable con respecto a {0}".format(a)
+                    comp8="\n" + "Con: {3}".format(indiceexceld)
+                    texto.insert(tk.END, ("\n" + msg2 + comp5 + comp6 +"\n" + msg3+comp7 + comp8))
         
     window.mainloop()
     return window
