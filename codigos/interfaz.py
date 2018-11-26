@@ -19,12 +19,6 @@ main.title("Nutridata")
 main.geometry("510x200")
 
 
-
-
-
-
-
-
 #---Etiquetas---
 mainlb = tk.Label(text="Bienvenido a nutridata", font=("Malgun Gothic Semilight", 10))
 mainlb.grid(column=0, row=0)
