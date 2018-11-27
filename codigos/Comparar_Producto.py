@@ -277,13 +277,13 @@ def distintos(wn):
     selección.set("Seleccione una opción")
 
     om = tk.OptionMenu(wn, selección,  *variables)
-    om.grid(column=0, row=9, padx=150, sticky="W")
+    om.grid(column=0, row=9, padx=120, sticky="W")
 
     #---Boton---
     but1=tk.Button(master=wn, text="Buscar información",
                    command=lambda:comparedist(selección, entry1,
                                               entry2,variables))
-    but1.grid(column=0, row=18, pady= 20,sticky="W")
+    but1.grid(column=0, row=9, padx =270, pady= 20,sticky="W")
             
 def Comparar_wn():
 
